@@ -6,7 +6,7 @@ snake[0] ={
     x: 8 * box,
     y: 8 * box
 }
-let direction = "right";
+let direction = 0; // "right";
 let food ={
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
@@ -79,5 +79,21 @@ function iniciarJogo(){
 
     snake.unshift(newHead); //método unshift adiciona como primeiro quadradinho da cobrinha
 }
+let jogo;
 
-let jogo = setInterval(iniciarJogo, 100);
+function funcaoLevel(elemento) {
+    clearInterval(jogo);
+    if (elemento.value == 1) {
+        t = 200;
+        jogo = setInterval(iniciarJogo, t);
+    }
+    if (elemento.value == 2) {
+        t = 100;
+        jogo = setInterval(iniciarJogo, t);
+    }
+    if (elemento.value == 3) {
+        t = 50;
+        jogo = setInterval(iniciarJogo, t);
+    }
+}
+
